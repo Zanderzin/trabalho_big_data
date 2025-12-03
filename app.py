@@ -299,6 +299,131 @@ try:
                 aspect='auto'
             )
             st.plotly_chart(fig_heatmap, use_container_width=True)
+
+    # ============================================
+    # 🔥 ABA EXTRA — Análises Avançadas
+    # ============================================
+
+    st.markdown("---")
+    st.header("📌 Análises Avançadas")
+
+    tabA, tabB, tabC, tabD = st.tabs([
+        "📊 KPIs Avançados",
+        "🔥 Distribuições (Histograma & Boxplot)",
+        "📈 Correlações",
+        "📅 Crescimento Temporal (YoY)"
+    ])
+
+    # =========================================================
+    # 📊 TAB A — KPIs AVANÇADOS
+    # =========================================================
+    with tabA:
+        st.subheader("📊 KPIs Avançados")
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            st.metric("Média Global de Vendas", f"{df_filtered['Global_Sales'].mean():.2f}M")
+
+        with col2:
+            st.metric("Mediana de Vendas", f"{df_filtered['Global_Sales'].median():.2f}M")
+
+        with col3:
+            st.metric("Desvio Padrão", f"{df_filtered['Global_Sales'].std():.2f}")
+
+        with col4:
+            st.metric("Coeficiente de Variação", f"{(df_filtered['Global_Sales'].std() / df_filtered['Global_Sales'].mean()):.2f}")
+
+        st.markdown("### 📘 Estatísticas Descritivas Completas")
+        st.dataframe(df_filtered.describe(), use_container_width=True)
+
+
+
+    # =========================================================
+    # 📊 TAB B — HISTOGRAMAS E BOXPLOTS
+    # =========================================================
+    with tabB:
+        st.subheader("📊 Distribuição das Vendas")
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            hist = px.histogram(
+                df_filtered,
+                x="Global_Sales",
+                nbins=40,
+                title="Histograma — Distribuição das Vendas Globais",
+                color_discrete_sequence=["#4ECDC4"]
+            )
+            st.plotly_chart(hist, use_container_width=True)
+
+        with col2:
+            box = px.box(
+                df_filtered,
+                y="Global_Sales",
+                title="Boxplot — Vendas Globais",
+                color_discrete_sequence=["#FF6B6B"]
+            )
+            st.plotly_chart(box, use_container_width=True)
+
+
+
+    # =========================================================
+    # 📈 TAB C — MAPA DE CORRELAÇÃO COMPLETO
+    # =========================================================
+    with tabC:
+        st.subheader("📈 Heatmap de Correlação Completo")
+
+        numeric_cols = df_filtered.select_dtypes(include=['float64', 'int64']).columns
+        corr_matrix = df_filtered[numeric_cols].corr()
+
+        fig_corr = px.imshow(
+            corr_matrix,
+            text_auto=True,
+            aspect="auto",
+            color_continuous_scale="RdBu_r",
+            title="Mapa de Correlação das Variáveis Numéricas"
+        )
+        st.plotly_chart(fig_corr, use_container_width=True)
+
+
+
+    # =========================================================
+    # 📅 TAB D — CRESCIMENTO TEMPORAL (YoY)
+    # =========================================================
+    with tabD:
+        st.subheader("📅 Crescimento Ano a Ano (YoY)")
+
+        if "Year" in df_filtered.columns and "Global_Sales" in df_filtered.columns:
+            yearly = df_filtered.groupby("Year")["Global_Sales"].sum().reset_index()
+            yearly["YoY Growth (%)"] = yearly["Global_Sales"].pct_change() * 100
+
+            col1, col2 = st.columns(2)
+
+            with col1:
+                yoy_line = px.line(
+                    yearly,
+                    x="Year",
+                    y="Global_Sales",
+                    title="Vendas Globais por Ano",
+                    markers=True
+                )
+                st.plotly_chart(yoy_line, use_container_width=True)
+
+            with col2:
+                yoy_growth = px.bar(
+                    yearly,
+                    x="Year",
+                    y="YoY Growth (%)",
+                    title="Crescimento Ano a Ano (%)",
+                    color="YoY Growth (%)",
+                    color_continuous_scale="RdYlGn"
+                )
+                st.plotly_chart(yoy_growth, use_container_width=True)
+
+            st.markdown("### 📘 Tabela YoY Completa")
+            st.dataframe(yearly, use_container_width=True)
+
     
     # Rodapé com estatísticas
     st.markdown("---")
@@ -319,3 +444,4 @@ except FileNotFoundError:
 except Exception as e:
     st.error(f"❌ Erro ao carregar os dados: {str(e)}")
     st.info("💡 Certifique-se de que o arquivo CSV está no formato correto e contém as colunas esperadas.")
+
