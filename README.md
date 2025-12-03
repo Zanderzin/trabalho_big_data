@@ -34,7 +34,6 @@ O projeto gera um dashboard visual (`analise_games_dashboard.png`) composto por 
 3.  **Agregação por Plataforma:** Top 10 consolas mais populares.
 4.  **Correlação:** Gráfico de dispersão entre *Critic Score* e *Total Sales*.
 
-> *[Insira aqui a imagem gerada pelo script, ex: analise_games_dashboard.png]*
 > ![Dashboard de Análise](analise_games_dashboard.png)
 
 ## 🛠 Tecnologias Utilizadas
