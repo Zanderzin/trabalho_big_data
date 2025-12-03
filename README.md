@@ -158,7 +158,7 @@ Este projeto apresenta uma análise abrangente do mercado global de videogames, 
 ├── requirements.txt
 ├── Dockerfile
 ├── docker-compose.yml
-├── visual.png
+├── imagem.png
 └── README.md
 ```
 
