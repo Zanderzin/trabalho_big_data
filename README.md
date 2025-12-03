@@ -4,7 +4,7 @@
 [![Platforms](https://img.shields.io/badge/Platforms-23-orange)](.)
 [![Genres](https://img.shields.io/badge/Genres-18-red)](.)
 
-![Dashboard de Análise](visual.png)
+![Dashboard de Análise](imagem.png)
 ## 📋 Visão Geral
 
 Este projeto apresenta uma análise abrangente do mercado global de videogames, cobrindo 29 anos de dados (1989-2018) com **1.210 jogos analisados**. O dataset inclui informações sobre vendas regionais, avaliações críticas, plataformas, gêneros, publishers e desenvolvedores.
