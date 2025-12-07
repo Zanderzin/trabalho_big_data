@@ -1,19 +1,20 @@
-version: '3.3'
+version: "3.3"
+
 services:
   streamlit-app:
     build:
-      context: .  # Use o diretório atual como contexto para encontrar o Dockerfile
+      context: .
     ports:
-      - "8501:8501"  # Mapeie a porta do container para a porta do host
-    volumes:
-      - ./app.py:/app/app.py  # Mapeie o arquivo app.py local diretamente para o diretório de trabalho no container
-
-# Definindo as redes que serão usadas pelos serviços.
+      - "8501:8501"
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin"
+      AWS_REGION: "us-east-1"
     networks:
-      - mybridge # Nome da rede que será usada.
+      - mybridge
+    volumes:
+      - ./app.py:/app/app.py
 
-# Configuração das redes que serão usadas no docker-compose.
 networks:
-  mybridge: # Nome da rede.
-    external: # Indica que a rede é externa e já foi criada anteriormente.
-      name: mybridge # Nome da rede externa que será usada.
+  mybridge:
+    external: true

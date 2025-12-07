@@ -1,6 +1,7 @@
 streamlit
+s3fs
+pyarrow
 pandas
-matplotlib
 numpy
-scikit-learn
 plotly
+xlsxwriter
