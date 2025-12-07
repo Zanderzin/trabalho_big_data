@@ -138,25 +138,9 @@ Os gráficos são renderizados dinamicamente via **Plotly**.
   - Heatmap por dia da semana × hora  
 
 ---
+Integrantes:
 
-## 📝 To-Do (Próximas melhorias)
-
-- Página de dados detalhados com filtros avançados  
-- Mapa com zonas TLC (GeoJSON)  
-- Persistência de filtros  
-- Otimização de memória no Pandas usando categorias  
-- Suporte a clusterização (DuckDB, Polars)  
-
----
-
-## 🤝 Contribuição
-
-Pull requests são bem-vindos!  
-Sugestões de melhorias, ideias de visualizações e otimizações também.
-
----
-
-## 📄 Licença
-
-Este projeto está sob a **licença MIT**.  
-Sinta-se livre para modificar e usar como quiser.
+Bernardo Alexander 
+Igor Nobre
+Pedro Augusto
+Pedro Henrique Guimarães
