@@ -54,22 +54,14 @@ O dashboard possui **5 seções**:
 ├── app.py               # Código principal Streamlit
 ├── README.md
 ├── requirements.txt
-└── docker-compose.yml   # (se estiver usando MinIO e Streamlit via Docker)
+└── docker-compose.yml  
 ```
 
 ---
 
 ## ⚙️ Como Executar
 
-### **1. Instalar dependências**
-```
-pip install -r requirements.txt
-```
-
-Ou manualmente:
-```
-pip install streamlit s3fs pyarrow pandas numpy plotly
-```
+### **1. Subir a VM**
 
 ### **2. Configurar variáveis do MinIO**
 
@@ -88,12 +80,23 @@ export MINIO_ENDPOINT=http://localhost:9000
 export MINIO_ROOT_USER=admin
 export MINIO_ROOT_PASSWORD=123456
 ```
+### **3. Subir os dados para o MinIO**
 
-### **3. Executar o dashboard**
-```
-streamlit run app.py
-```
+[https://data.cityofnewyork.us/Transportation/2023-For-Hire-Vehicles-Trip-Data/ywip-y6qr/about_data](https://data.cityofnewyork.us/Transportation/2023-For-Hire-Vehicles-Trip-Data/ywip-y6qr/about_data)
 
+### **4. Rodar o script do Spark**
+
+Dentro da pasta spark:
+
+trabalho.ipynb
+
+### **5. Subir o Streamlit com os arquivos desse repositorio**
+```
+├── app.py               # Código principal Streamlit
+├── README.md
+├── requirements.txt
+└── docker-compose.yml
+```
 ---
 
 ## 📁 Estrutura dos Dados (FHV 2023)
