@@ -144,6 +144,9 @@ Os gráficos são renderizados dinamicamente via **Plotly**.
 Integrantes:
 
 Bernardo Alexander 
+
 Igor Nobre
+
 Pedro Augusto
+
 Pedro Henrique Guimarães
