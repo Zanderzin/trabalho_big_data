@@ -6,6 +6,8 @@ Este projeto é um dashboard interativo desenvolvido com **Streamlit**, integrad
 
 A aplicação permite carregar milhares/milhões de registros Parquet de forma eficiente, explorá-los com **PyArrow** e visualizar métricas principais, análises temporais, rankings de bases e muito mais.
 
+
+Baixe os dados em: https://data.cityofnewyork.us/Transportation/2023-For-Hire-Vehicles-Trip-Data/ywip-y6qr/about_data
 ---
 
 ## 🚀 Funcionalidades
