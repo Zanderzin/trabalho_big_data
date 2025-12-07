@@ -1,5 +1,7 @@
 # 📊 TLC FHV 2023 — Dashboard de Análise Exploratória (Streamlit + MinIO)
 
+![Interface do Streamlit](imagem.png)
+
 Este projeto é um dashboard interativo desenvolvido com **Streamlit**, integrado ao **MinIO/S3**, para análise exploratória da base **For-Hire Vehicle Trip Records (FHV)** de **2023** da TLC (NYC Taxi and Limousine Commission).
 
 A aplicação permite carregar milhares/milhões de registros Parquet de forma eficiente, explorá-los com **PyArrow** e visualizar métricas principais, análises temporais, rankings de bases e muito mais.
